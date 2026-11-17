@@ -21,21 +21,17 @@ public class EmployeeManager {
 
             System.out.println("Loading data ...");
 
-            try {
-                BufferedReader r = new BufferedReader(
-                    new InputStreamReader(
-                        new FileInputStream("employees.txt")
-                    )
-                );
+            try (BufferedReader reader = new BufferedReader(new FileReader("employees.txt"))) {
 
-                String l = r.readLine();
-                String e[] = l.split(",");
+                String line = reader.readLine();
+                String[] employees = line.split(",");
 
-                for (String emp : e) {
-                    System.out.println(emp);
+                for (String employee : employees) {
+                    System.out.println(employee);
                 }
 
-            } catch (Exception e) {
+            } catch (IOException exception) {
+                exception.printStackTrace();
             }
 
             System.out.println("Data Loaded.");
