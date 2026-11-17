@@ -7,6 +7,7 @@ public class EmployeeManager {
 
     public static void main(String[] args) {
 
+        // Display all employees stored in the file.
         if (args[0].equals("l")) {
 
             System.out.println("Loading data ...");
@@ -24,7 +25,7 @@ public class EmployeeManager {
             }
 
             System.out.println("Data Loaded.");
-
+        // Select and display a random employee.
         } else if (args[0].equals("s")) {
 
             System.out.println("Loading data ...");
@@ -43,7 +44,7 @@ public class EmployeeManager {
             }
 
             System.out.println("Data Loaded.");
-
+        // Add a new employee to the file.
         } else if (args[0].contains("+")) {
 
             System.out.println("Loading data ...");
@@ -57,7 +58,7 @@ public class EmployeeManager {
             }
 
             System.out.println("Data Loaded.");
-
+        // Search for an employee by name.
         } else if (args[0].contains("?")) {
 
             System.out.println("Loading data ...");
@@ -83,7 +84,7 @@ public class EmployeeManager {
             }
 
             System.out.println("Data Loaded.");
-
+        // Count the words in the employee file.
         } else if (args[0].contains("c")) {
 
             System.out.println("Loading data ...");
@@ -99,7 +100,7 @@ public class EmployeeManager {
             }
 
             System.out.println("Data Loaded.");
-
+        // Update an existing employee's name.
         } else if (args[0].contains("u")) {
 
             System.out.println("Loading data ...");
@@ -122,7 +123,7 @@ public class EmployeeManager {
             }
 
             System.out.println("Data Updated.");
-
+        // Delete an employee from the file.
         } else if (args[0].contains("d")) {
 
             System.out.println("Loading data ...");
@@ -142,12 +143,14 @@ public class EmployeeManager {
 
 
             System.out.println("Data Deleted.");
+        // Display an error message for invalid commands.
         } else {
             System.out.println("Invalid argument!");
             System.out.println("Valid commands: l, s, +Name, ?Name, c, uName, dName");
         }
     }
 
+    // Reads and returns the employee data from the file.
     private static String readFile() throws IOException {
         try (BufferedReader reader = new BufferedReader(
             new FileReader(Constants.EMPLOYEE_FILE))) {
@@ -155,6 +158,8 @@ public class EmployeeManager {
         }
     }
 
+
+    // Writes data to the file, either appending or replacing its contents.
     private static void writeFile(String data, boolean append) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(
             new FileWriter(Constants.EMPLOYEE_FILE, append))) {
