@@ -7,16 +7,6 @@ public class EmployeeManager {
 
     public static void main(String[] args) {
 
-        // Check arguments
-        if (args.length != 1) {
-            System.out.println("Invalid number of arguments!");
-            return;
-        }
-
-        // Check arguments
-
-
-
         if (args[0].equals("l")) {
 
             System.out.println("Loading data ...");
@@ -152,6 +142,9 @@ public class EmployeeManager {
 
 
             System.out.println("Data Deleted.");
+        } else {
+            System.out.println("Invalid argument!");
+            System.out.println("Valid commands: l, s, +Name, ?Name, c, uName, dName");
         }
     }
 
