@@ -99,26 +99,11 @@ public class EmployeeManager {
             System.out.println("Loading data ...");
 
             try {
-                char[] chars = readFile().toCharArray();
-                boolean inWord = false;
-                int count = 0;
+                String line = readFile();
 
-                for (char c : chars) {
+                int wordCount = line.trim().split("\\s+").length;
 
-                    if (c == ' ') {
-
-                        if (!inWord) {
-                            count++;
-                            inWord = true;
-                        } else {
-                            inWord = false;
-                        }
-                    }
-                }
-
-                System.out.println(
-                    count + " word(s) found " + chars.length
-                );
+                System.out.println("Word count: " + wordCount);
 
             } catch (Exception e) {
             }
