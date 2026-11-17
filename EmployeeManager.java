@@ -78,11 +78,15 @@ public class EmployeeManager {
                 String s = args[0].substring(1);
 
                 for (int i = 0; i < e.length && !found; i++) {
-
                     if (e[i].equals(s)) {
-                        System.out.println("Employee found!");
                         found = true;
                     }
+                }
+
+                if (found) {
+                    System.out.println("Employee found!");
+                } else {
+                    System.out.println("Employee not found!");
                 }
 
             } catch (Exception e) {
